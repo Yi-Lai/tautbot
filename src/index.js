@@ -1,7 +1,7 @@
 // Module must be started with environment variables
 //
-accesskey="560866e254ca4bf6835e58f59354e6a8"
-slackkey="xoxb-143393654422-kQ5bBB2VbuVAWLil2EByp8ZD"
+//  accesskey="api.ai client access key"
+//  slackkey="slack bot key"
 //
 
 'use strict';
@@ -73,7 +73,7 @@ function isDefined(obj) {
     return obj != null;
 }
 
-controller.hears(['.*'], ['direct_message', 'direct_mention', 'mention', 'ambient'], (bot, message) => {
+controller.hears(['.*'], ['direct_mention'], (bot, message) => {
     try {
         if (message.type == 'message') {
             if (message.user == bot.identity.id) {
