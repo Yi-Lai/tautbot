@@ -33,7 +33,7 @@ var bot = controller.spawn({
 
 controller.on('rtm_close', function (bot, err) {
     console.log('** The RTM api just closed, reason', err);
-    
+
     try {
 
         // sometimes connection closing, so, we should restart bot
@@ -73,7 +73,7 @@ function isDefined(obj) {
     return obj != null;
 }
 
-controller.hears(['.*'], ['direct_message', 'direct_mention', 'mention', 'ambient'], (bot, message) => {
+controller.hears(['.*'], ['direct_mention'], (bot, message) => {
     try {
         if (message.type == 'message') {
             if (message.user == bot.identity.id) {
