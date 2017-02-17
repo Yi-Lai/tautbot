@@ -164,4 +164,4 @@ function replyWithData(bot, message, responseData) {
 const server = http.createServer((req, res) => res.end());
 
 //Lets start our server
-server.listen((process.env.PORT || 5000), () => console.log("Server listening"));
+server.listen((process.env.PORT || 5002), () => console.log("Server listening"));
