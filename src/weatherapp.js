@@ -11,9 +11,9 @@ var googleURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 prompt.get(['location'], function(err, result) {
 
     console.log('Command-line input received:');
-    console.log('Enter your location: ' result.location);
+    console.log('Enter your location: '+ result.location);
 
-    googleURL = googleURL result.location;
+    googleURL = googleURL + result.location;
 
     request(googleURL, function(err, response) {
 
@@ -31,7 +31,7 @@ prompt.get(['location'], function(err, result) {
 
         }
 
-        darkSkyURL = darkSkyURL lat1 "," lon1;
+        darkSkyURL = darkSkyURL+lat1+","+lon1;
 
         request(darkSkyURL, function(err, response) {
 
