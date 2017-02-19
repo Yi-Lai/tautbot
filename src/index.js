@@ -31,6 +31,15 @@ var bot = controller.spawn({
     token: slackBotKey
 }).startRTM();
 
+controller.on('direct_message',function(bot,message,err) {
+  // reply to _message_ by using the _bot_ object
+  try{
+    bot.reply(message,'You are talking directly to me');
+  } catch(err){
+    console.log('Direct_message has failed',err);
+  }
+});
+
 controller.on('rtm_close', function (bot, err) {
     console.log('** The RTM api just closed, reason', err);
 
