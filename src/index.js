@@ -21,7 +21,7 @@ const slackBotKey = process.env.slackkey;
 const apiAiService = apiai(apiAiAccessToken);
 
 const sessionIds = new Map();
-const weather = require('weatherapp');
+const weather = require('./weatherapp');
 
 const controller = Botkit.slackbot({
     debug: false
