@@ -19,8 +19,6 @@ const slackBotKey = process.env.slackkey;
 
 const apiAiService = apiai(apiAiAccessToken);
 
-var query = message.match[1];
-const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
 
 const sessionIds = new Map();
 
@@ -77,6 +75,9 @@ function isDefined(obj) {
 
 controller.hears(['direct_mention'], function (bot, message) {
 request(`wolframalpha`, function(err, result) {
+  var query = message.match[1];
+  const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
+
         if (err) {
             console.log("Error", err);
         } else  if (result.body ==="Wolfram|Alpha did not understand your input") {
