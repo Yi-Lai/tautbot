@@ -13,7 +13,7 @@ const uuid = require('node-uuid');
 const http = require('http');
 const Entities = require('html-entities').XmlEntities;
 const decoder = new Entities();
-
+const request = require('request');
 const apiAiAccessToken = process.env.accesstoken;
 const slackBotKey = process.env.slackkey;
 
