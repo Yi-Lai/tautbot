@@ -78,8 +78,8 @@ var query = message.match[1];
 request(`http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`, function(err, result) {
         if (err) {
             console.log("Error", err);
-        } else {
-            bot.replyWithTyping(message, result.body);
+        }else {
+            bot.replyWithText(message, result.body);
         }
 })
 })
