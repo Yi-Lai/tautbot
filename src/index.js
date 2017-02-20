@@ -72,19 +72,19 @@ function isDefined(obj) {
     return obj != null;
 }
 
-controller.hears(['listen:(.*)'],['direct_mention'], function (bot, message) {
-var query = message.match[1];
-//const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
-request(`http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`, function(err, result) {
-        if (err) {
-            console.log("Error", err);
-        }else {
-            bot.reply(message, result.body);
-        }
-})
-})
+// controller.hears(['listen:(.*)'],['direct_mention'], function (bot, message) {
+// var query = message.match[1];
+// //const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
+// request(`http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`, function(err, result) {
+//         if (err) {
+//             console.log("Error", err);
+//         }else {
+//             bot.reply(message, result.body);
+//         }
+// })
+// })
 
-controller.hears(['(.*)'],['direct_message', 'mention'], (bot, message) => {
+controller.hears(['(.*)'],['direct_message', 'direct_mention'], (bot, message) => {
     try {
         if (message.type == 'message') {
             if (message.user == bot.identity.id) {
