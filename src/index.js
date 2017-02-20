@@ -20,8 +20,9 @@ const slackBotKey = process.env.slackkey;
 
 const apiAiService = apiai(apiAiAccessToken);
 
+const wolframalpha = require('./wolframalpha');
+
 const sessionIds = new Map();
-const weather = require('./weatherapp');
 
 const controller = Botkit.slackbot({
     debug: false
@@ -74,7 +75,7 @@ function isDefined(obj) {
     return obj != null;
 }
 
-controller.hears(['.*'], ['direct_mention','direct_message'], (bot, message) => {
+controller.hears(['wolframalpha(.*)'], ['direct_mention','direct_message'], (bot, message) => {
     try {
         if (message.type == 'message') {
             if (message.user == bot.identity.id) {
