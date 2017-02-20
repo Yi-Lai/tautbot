@@ -74,9 +74,9 @@ function isDefined(obj) {
 
 controller.hears(['(.*)'],['direct_mention'], function (bot, message) {
 var query = message.match[1];
-const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
+//const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
 
-request(`wolframalpha`, function(err, result) {
+request(`http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`, function(err, result) {
         if (err) {
             console.log("Error", err);
         } else  if (result.body ==="Wolfram|Alpha did not understand your input") {
