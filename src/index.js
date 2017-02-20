@@ -19,7 +19,6 @@ const slackBotKey = process.env.slackkey;
 
 const apiAiService = apiai(apiAiAccessToken);
 
-
 const sessionIds = new Map();
 
 const controller = Botkit.slackbot({
@@ -74,16 +73,16 @@ function isDefined(obj) {
 }
 
 controller.hears(['direct_mention'], function (bot, message) {
-request(`wolframalpha`, function(err, result) {
-  var query = message.match[1];
-  const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
+var query = message.match[1];
+const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
 
+request(`wolframalpha`, function(err, result) {
         if (err) {
             console.log("Error", err);
         } else  if (result.body ==="Wolfram|Alpha did not understand your input") {
-            bot.replyWithTyping(message, ":sad_face:")
+            bot.replyWithTyping(message, "not understand input")
         } else if (result.body === "No short answer available") {
-            bot.replyWithTyping(message, ":thinking_face:")
+            bot.replyWithTyping(message, "no short answer")
         } else {
             bot.replyWithTyping(message, result.body);
         }
