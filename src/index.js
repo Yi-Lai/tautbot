@@ -13,7 +13,7 @@ const uuid = require('node-uuid');
 const http = require('http');
 const Entities = require('html-entities').XmlEntities;
 const decoder = new Entities();
-const requestjs = require('request');
+const request = require('request');
 const apiAiAccessToken = process.env.accesstoken;
 const slackBotKey = process.env.slackkey;
 
@@ -75,7 +75,7 @@ function isDefined(obj) {
 controller.hears(['listen:(.*)'],['direct_mention'], function (bot, message) {
 var query = message.match[1];
 //const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
-requestjs(`http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`, function(err, result) {
+request(`http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`, function(err, result) {
         if (err) {
             console.log("Error", err);
         } else {
