@@ -11,7 +11,6 @@ const Botkit = require('botkit');
 const apiai = require('apiai');
 const uuid = require('node-uuid');
 const http = require('http');
-
 const Entities = require('html-entities').XmlEntities;
 const decoder = new Entities();
 
@@ -74,8 +73,9 @@ function isDefined(obj) {
 
     return obj != null;
 }
+wolframalpha();
 
-controller.hears(['wolframalpha(.*)'], ['direct_mention','direct_message'], (bot, message) => {
+controller.hears(['(.*)'], ['direct_message'], (bot, message) => {
     try {
         if (message.type == 'message') {
             if (message.user == bot.identity.id) {
@@ -85,7 +85,7 @@ controller.hears(['wolframalpha(.*)'], ['direct_mention','direct_message'], (bot
                 // skip other users direct mentions
             }
             else {
-
+                bot.reply(message.toSay);
                 let requestText = decoder.decode(message.text);
                 requestText = requestText.replace("’", "'");
 
