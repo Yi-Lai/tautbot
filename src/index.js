@@ -72,7 +72,7 @@ function isDefined(obj) {
     return obj != null;
 }
 
-controller.hears(['direct_mention'], function (bot, message) {
+controller.hears(['(.*)'],['direct_mention'], function (bot, message) {
 var query = message.match[1];
 const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
 
