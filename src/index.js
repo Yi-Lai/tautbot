@@ -76,7 +76,7 @@ function isDefined(obj) {
 
 controller.hears(['direct_mention'], function (bot, message) {
 var query = message.match[1];
-request(`wolframalpha${query}`, function(err, result) {
+request(wolframalpha`${query}`, function(err, result) {
         if (err) {
             console.log("Error", err);
         } else  if (result.body ==="Wolfram|Alpha did not understand your input") {
