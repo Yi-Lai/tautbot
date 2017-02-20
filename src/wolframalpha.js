@@ -8,6 +8,15 @@ const prompt = require('prompt');
 
 var wolframalpha = "http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=";
 
+const controller = Botkit.slackbot({
+    debug: false
+    //include "log: false" to disable logging
+});
+
+var bot = controller.spawn({
+    token: slackBotKey
+}).startRTM();
+
 constroller.hears(['direct_mention'], function (bot, message) {
 var query = message.match[1];
 request(`wolframalpha${query}`, function(err, result) {
