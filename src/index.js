@@ -20,7 +20,7 @@ const slackBotKey = process.env.slackkey;
 
 const apiAiService = apiai(apiAiAccessToken);
 
-const wolframalpha = require('./wolframalpha');
+var wolframalpha = "http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG";
 
 const sessionIds = new Map();
 
