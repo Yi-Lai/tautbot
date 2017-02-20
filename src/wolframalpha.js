@@ -27,3 +27,5 @@ prompt.get(['input'], function(err, result) {
             }
 
         }
+})
+})
