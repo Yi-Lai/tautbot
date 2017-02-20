@@ -94,7 +94,6 @@ controller.hears(['(.*)'],['direct_message', 'mention'], (bot, message) => {
                 // skip other users direct mentions
             }
             else {
-                bot.reply(message.toSay);
                 let requestText = decoder.decode(message.text);
                 requestText = requestText.replace("’", "'");
 
