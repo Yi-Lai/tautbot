@@ -10,7 +10,7 @@ var wolframalpha = "http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJP
 prompt.get(['input'], function(err, result) {
 
     console.log('Command-line input received:');
-    console.log('Enter your information: '+ result.location);
+    console.log('Enter your information: '+ result.input);
 
     wolframalpha = wolframalpha + result.input;
 
