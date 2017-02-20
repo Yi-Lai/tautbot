@@ -72,24 +72,19 @@ function isDefined(obj) {
     return obj != null;
 }
 
-controller.hears(['(.*)'],['direct_mention'], function (bot, message) {
+controller.hears(['listen:(.*)'],['direct_mention'], function (bot, message) {
 var query = message.match[1];
 //const wolframalpha = `http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`;
-
 request(`http://api.wolframalpha.com/v1/simple?appid=UX3QU2-76QKEYJJPG&i=${query}`, function(err, result) {
         if (err) {
             console.log("Error", err);
-        } else  if (result.body ==="Wolfram|Alpha did not understand your input") {
-            bot.replyWithTyping(message, "not understand input")
-        } else if (result.body === "No short answer available") {
-            bot.replyWithTyping(message, "no short answer")
         } else {
             bot.replyWithTyping(message, result.body);
         }
 })
 })
 
-controller.hears(['(.*)'], ['direct_message'], (bot, message) => {
+controller.hears(['(.*)'],['direct_message', 'mention'], (bot, message) => {
     try {
         if (message.type == 'message') {
             if (message.user == bot.identity.id) {
